@@ -5,6 +5,7 @@ const cors = require("cors");
 const connectDB = require("./config/db.jsx");
 const colors = require("colors");
 const userRoutes = require("./routes/userRoutes.jsx");
+const chatRoutes = require("./routes/chatRoutes.jsx")
 const { notFound, errorHandler } = require("./middleware/errorMiddleware.jsx").default;
 const app = express();
 dotenv.config();
@@ -19,6 +20,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user", userRoutes);
+
+app.use("/api/chat",chatRoutes)
 
 app.use(notFound);
 app.use(errorHandler);
