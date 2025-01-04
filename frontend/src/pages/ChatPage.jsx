@@ -1,11 +1,12 @@
-import MyChats from "../components/miscellaneous/MyChats.jsx";
+import MyChats from "../components/MyChats.jsx";
 import SideDrawer from "../components/miscellaneous/SideDrawer.jsx";
 import { ChatState } from "../Context/ChatProvider.jsx";
 import { Box } from "@chakra-ui/react";
-import ChatBox from "../components/miscellaneous/ChatBox.jsx";
+import ChatBox from "../components/ChatBox.jsx";
 
 const ChatPage = () => {
   const { user } = ChatState();
+  console.log(user)
 
   return (
     <div style={{ width: "100%" }}>

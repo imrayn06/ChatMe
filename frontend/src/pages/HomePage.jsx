@@ -12,7 +12,7 @@ import {
   TabPanel,
   background,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 
 const HomePage = () => {
   const navigate = useNavigate();

@@ -49,7 +49,7 @@ const Signup = () => {
         .post("https://api.cloudinary.com/v1_1/dsdwziwqb/image/upload", data)
         .then((res) => {
           setPic(res.data.url.toString());
-          console.log(res.data.url.toString());
+          console.log(res.data.url.toString());//pic url
           setLoading(false);
           toast({
             title: "Image uploaded successfully!",
@@ -109,6 +109,7 @@ const Signup = () => {
         { name, email, password, pic },
         config
       );
+      
       toast({
         title: "SignUp Successful",
         status: "success",
