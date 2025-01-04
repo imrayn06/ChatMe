@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Login from "../components/Authentication/Login";
 import Signup from "../components/Authentication/Signup";
 import {
@@ -14,6 +15,17 @@ import {
 import React from "react";
 
 const HomePage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (userInfo) {
+      //if the user is already logged in
+      navigate("/");
+    }
+  }, [navigate]);
+
   return (
     <Container maxW="xl" centerContent display="flex" justifyContent="center">
       <Box

@@ -5,6 +5,7 @@ import App from "./App.jsx";
 import { extendTheme } from '@chakra-ui/react'
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter } from "react-router-dom";
+import ChatProvider from "./Context/ChatProvider.jsx";
 
 const colors = {
   brand: {
@@ -17,11 +18,11 @@ const theme = extendTheme({ colors })
 
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
     <BrowserRouter>
+  <ChatProvider>
       <ChakraProvider  theme={theme}>
         <App />
       </ChakraProvider>
+  </ChatProvider>
     </BrowserRouter>
-  </StrictMode>
 );
