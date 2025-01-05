@@ -25,7 +25,8 @@ const ENDPOINT = "http://localhost:5000";
 let socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
-  const { user, selectedChat, setSelectedChat } = ChatState();
+  const { user, selectedChat, setSelectedChat, notification, setNotification } =
+    ChatState();
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [newMessage, setNewMessage] = useState();
@@ -91,6 +92,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
     selectedChatCompare = selectedChat; //keeps backup of selected chat state and a/c we emit or send notification
   }, [selectedChat]);
 
+
+  // console.log(notification,'---------------')
   useEffect(() => {
     socket.on("message recieved", (newMessageRecieved) => {
       if (
@@ -98,6 +101,10 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
         //give notification
+        if (!notification.includes(newMessageRecieved)) {
+          setNotification([newMessageRecieved, ...notification]);
+          setFetchAgain(!fetchAgain);//update lst of chats
+        }
       } else {
         setMessages([...messages, newMessageRecieved]);
       }
@@ -234,7 +241,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                   <Lottie
                     options={defaultOptions}
                     width={70}
-                    style={{ marginBottom: 15, marginLeft: 0}}
+                    style={{ marginBottom: 15, marginLeft: 0 }}
                   />
                 </div>
               ) : (
