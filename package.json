@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.jsx",
     "server": "nodemon backend/server.jsx",
-    "build": "cd frontend && npm install && npm run build"
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend"
   },
   "author": "Narayan Dutta",
   "license": "ISC",
