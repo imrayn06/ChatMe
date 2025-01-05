@@ -9,6 +9,8 @@ const chatRoutes = require("./routes/chatRoutes.jsx");
 const messageRoutes = require("./routes/messageRoutes.jsx");
 const { notFound, errorHandler } =
   require("./middleware/errorMiddleware.jsx").default;
+
+const path = require("path");
 const app = express();
 dotenv.config();
 connectDB();
@@ -29,6 +31,18 @@ app.use("/api/chat", chatRoutes);
 
 app.use("/api/message", messageRoutes);
 
+// ---------------------Deployment-------------------------//
+
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+} else {
+  app.get("/", (req, res) => {
+    res.send(`API is running succesfully`);
+  });
+}
+
+// ---------------------Deployment-------------------------//
 app.use(notFound);
 app.use(errorHandler);
 
@@ -57,7 +71,7 @@ io.on("connection", (socket) => {
 
   socket.on("join chat", (room) => {
     socket.join(room);
-    console.log(`User joined room ${room}`);
+    // console.log(`User joined room ${room}`);
   }); // updates when ever a user clicks on any chats
 
   socket.on("typing", (room) => socket.in(room).emit("typing"));
@@ -78,6 +92,6 @@ io.on("connection", (socket) => {
 
   socket.off("setup", () => {
     console.log("User Disconnected");
-    socket.leave(userData._id);//closing
+    socket.leave(userData._id); //closing
   });
 });

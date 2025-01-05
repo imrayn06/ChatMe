@@ -131,7 +131,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
           },
           config
         );
-        console.log(data);
+        // console.log(data);
 
         socket.emit("new message", data); //data we recieve from api call
         setMessages([...messages, data]);

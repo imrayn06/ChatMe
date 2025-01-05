@@ -49,7 +49,7 @@ const Signup = () => {
         .post("https://api.cloudinary.com/v1_1/dsdwziwqb/image/upload", data)
         .then((res) => {
           setPic(res.data.url.toString());
-          console.log(res.data.url.toString());//pic url
+          // console.log(res.data.url.toString());//pic url
           setLoading(false);
           toast({
             title: "Image uploaded successfully!",
@@ -60,7 +60,7 @@ const Signup = () => {
           });
         })
         .catch((error) => {
-          console.error("Error uploading the image:", error);
+          // console.error("Error uploading the image:", error);
           setLoading(false);
         });
     } else {
