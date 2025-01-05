@@ -4,10 +4,9 @@
   "description": "",
   "main": "backend/server.jsx",
   "scripts": {
-    "start": "npm run server",
+    "start": "node backend/server.jsx",
     "server": "nodemon backend/server.jsx",
-    "build": "cd frontend && npm install && npm run build",
-    "deploy": "npm run build"
+    "build": "cd frontend && npm install && npm run build"
   },
   "author": "Narayan Dutta",
   "license": "ISC",
