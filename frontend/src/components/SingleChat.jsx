@@ -1,14 +1,100 @@
-import { Box, IconButton, Text } from "@chakra-ui/react";
+import {
+  Box,
+  FormControl,
+  IconButton,
+  Input,
+  Spinner,
+  Text,
+  useToast,
+} from "@chakra-ui/react";
 import { ChatState } from "../Context/ChatProvider.jsx";
-import React from "react";
-import { ArrowBackIcon } from "@chakra-ui/icons";
+import React, { useEffect, useState } from "react";
+import { ArrowBackIcon, SpinnerIcon } from "@chakra-ui/icons";
 import { getSender, getSenderDetails } from "../config/ChatLogics.jsx";
 import Profile from "./miscellaneous/Profile.jsx";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal.jsx";
+import axios from "axios";
+import './Css/styles.css'
+import ScrollableChat from "./ScrollableChat.jsx";
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const { user, selectedChat, setSelectedChat } = ChatState();
+  const [messages, setMessages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [newMessage, setNewMessage] = useState();
 
+  const toast = useToast();
+
+  const fetchMessages = async () => {
+    if (!selectedChat) return;
+
+    try {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      };
+      setLoading(true);
+      const { data } = await axios.get(
+        `http://localhost:5000/api/message/${selectedChat._id}`,
+        config
+      );
+
+      // console.log(messages)
+      setMessages(data);
+      setLoading(false);
+    } catch (error) {
+      toast({
+        title: "Error!",
+        description: "Failed to load the messages.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+        position: "bottom",
+      });
+    }
+  };
+  useEffect(() => {
+    fetchMessages();
+  }, [selectedChat]);
+
+  const sendMessage = async (event) => {
+    if (event.key === "Enter" && newMessage) {
+      try {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        };
+
+        setNewMessage("");
+        const { data } = await axios.post(
+          "http://localhost:5000/api/message",
+          {
+            content: newMessage,
+            chatId: selectedChat._id,
+          },
+          config
+        );
+        console.log(data);
+        setMessages([...messages, data]);
+      } catch (error) {
+        toast({
+          title: "Error!",
+          description: error.message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "bottom",
+        });
+      }
+    }
+  };
+  const typingHandler = (e) => {
+    setNewMessage(e.target.value);
+  };
+  // typing indiactor
   return (
     <>
       {selectedChat ? (
@@ -39,6 +125,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                 <UpdateGroupChatModal
                   fetchAgain={fetchAgain}
                   setFetchAgain={setFetchAgain}
+                  fetchMessages = {fetchMessages}
                 />
               </>
             )}
@@ -54,7 +141,35 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             borderRadius="lg"
             overflowY="hidden"
           >
-            {/* Messages Here */}
+            {loading ? (
+              <Spinner
+                size="xl"
+                w={20}
+                h={20}
+                alignSelf="center"
+                m="auto"
+                color="rgb(14, 209, 134)"
+                thickness="6px"
+                speed="0.75s"
+                // emptyColor='white.200'
+              />
+            ) : (
+              <div className="messages">
+                <ScrollableChat messages = {messages}/>
+              </div>
+            )}
+            <FormControl onKeyDown={sendMessage} isRequired mt={3}>
+              <Input
+                variant="filled"
+                bg="rgb(150, 153, 152)"
+                placeholder="Enter a message..."
+                _placeholder={{ color: "white" }}
+                border="1px"
+                borderColor="rgb(61, 236, 178)"
+                onChange={typingHandler}
+                value={newMessage}
+              />
+            </FormControl>
           </Box>
         </>
       ) : (
