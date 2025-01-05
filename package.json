@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.jsx",
     "server": "nodemon backend/server.jsx",
-    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "build": "npm install && npm install frontend && npm run build frontend"
   },
   "author": "Narayan Dutta",
   "license": "ISC",
