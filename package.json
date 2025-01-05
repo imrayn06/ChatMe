@@ -2,11 +2,12 @@
   "name": "chatme",
   "version": "1.0.0",
   "description": "",
-  "main": "server.jsx",
+  "main": "backend/server.jsx",
   "scripts": {
-    "start": "node backend/server.jsx",
+    "start": "concurrently \"npm run server\" \"npm run frontend\"",
     "server": "nodemon backend/server.jsx",
-    "build": "npm install && npm install frontend && npm run build frontend"
+    "frontend": "cd frontend && npm run dev",
+    "build": "cd frontend && npm install && npm run build"
   },
   "author": "Narayan Dutta",
   "license": "ISC",
@@ -29,5 +30,8 @@
     "nodemon": "^3.1.9",
     "sass": "^1.83.1",
     "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
   }
 }
