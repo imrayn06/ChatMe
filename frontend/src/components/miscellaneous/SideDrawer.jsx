@@ -32,7 +32,6 @@ import axios from "axios";
 import ChatLoading from "../ChatLoading.jsx";
 import UserListItem from "../UserAvatar/UserListItem.jsx";
 import { getSender, getSenderDetails } from "../../config/ChatLogics.jsx";
-import Badge from "@mui/material/Badge";
 
 const SideDrawer = () => {
   const [search, setSearch] = useState("");
