@@ -7,8 +7,7 @@ const colors = require("colors");
 const userRoutes = require("./routes/userRoutes.jsx");
 const chatRoutes = require("./routes/chatRoutes.jsx");
 const messageRoutes = require("./routes/messageRoutes.jsx");
-const { notFound, errorHandler } =
-  require("./middleware/errorMiddleware.jsx").default;
+const { notFound, errorHandler } = require("./middleware/errorMiddleware.jsx");
 
 const path = require("path");
 const app = express();
@@ -21,9 +20,9 @@ app.use(
 );
 app.use(express.json()); //to accept json data
 
-app.get("/", (req, res) => {
-  res.send(`API is running succesfully`);
-});
+// app.get("/", (req, res) => {
+//   res.send(`API is running succesfully`);
+// });
 
 app.use("/api/user", userRoutes);
 
@@ -34,9 +33,15 @@ app.use("/api/message", messageRoutes);
 // ---------------------Deployment-------------------------//
 
 const __dirname1 = path.resolve();
+
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.use(express.static(path.join(__dirname1, "/frontend","/dist")));
+  
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname1, "frontend", "dist", "index.html"));
+  });
 } else {
+  console.log(path.join(__dirname1, 'frontend', 'dist'));
   app.get("/", (req, res) => {
     res.send(`API is running succesfully`);
   });
@@ -49,7 +54,7 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 const server = app.listen(
-  5000,
+  PORT,
   console.log(`Server started on port ${PORT}`.yellow.bold)
 );
 
