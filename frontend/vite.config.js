@@ -8,6 +8,9 @@ export default defineConfig({
     watch: {
       usePolling: true,
     },
+     build: {
+    outDir: 'dist'
+  }
 
   },
 });
