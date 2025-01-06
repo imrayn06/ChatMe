@@ -15,7 +15,11 @@ dotenv.config();
 connectDB();
 app.use(
   cors({
-    origin: "http://localhost:5174", //frontend
+    origin: [
+      "http://localhost:5174", // For local development
+      "https://chatme-9e0j.onrender.com/" // For production deployment
+    ],
+    credentials: true, // Allow cookies if needed
   })
 );
 app.use(express.json()); //to accept json data
