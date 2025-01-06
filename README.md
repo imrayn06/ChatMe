@@ -47,7 +47,9 @@ ChatMe is a Full Stack Chatting App that provides real-time communication using 
 
 ![Screenshot 2025-01-06 232157](https://github.com/user-attachments/assets/ca329584-424e-46ef-87d3-663430ea0265)
 
-![Screenshot 2025-01-06 232321](https://github.com/user-attachments/assets/f44803be-f958-401c-a718-6229239740bd)  ![Screenshot 2025-01-06 232354](https://github.com/user-attachments/assets/2ece7464-61d4-4de1-87ca-c09a013a5ca5)
+![Screenshot 2025-01-06 232321](https://github.com/user-attachments/assets/f44803be-f958-401c-a718-6229239740bd)  
+
+![Screenshot 2025-01-06 232354](https://github.com/user-attachments/assets/2ece7464-61d4-4de1-87ca-c09a013a5ca5)
 
 
 ### Landing Page, Single Chat Page & Group Chat Page
