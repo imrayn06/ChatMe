@@ -65,7 +65,7 @@ npm install
 
 ### Start the Server
 ```bash
-npm run start
+npm start
 ```
 
 ### Start the Client
