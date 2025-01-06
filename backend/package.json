@@ -1,8 +1,8 @@
 {
   "name": "chatme",
   "version": "1.0.0",
-  "description": "",
-  "main": "backend/server.jsx",
+  "description": "ChatMe is a Full Stack Chatting App that provides real-time communication using Socket.io. It securely stores user details in encrypted format in a MongoDB database.",
+  "main": "backend/server.js",
   "scripts": {
     "dev": "nodemon server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
@@ -32,5 +32,6 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
-  }
+  },
+  "keywords": []
 }

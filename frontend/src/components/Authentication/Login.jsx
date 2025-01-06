@@ -15,6 +15,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [show, setShow] = useState(false);
@@ -47,7 +48,7 @@ const Login = () => {
         },
       };
       const { data } = await axios.post(
-        "http://localhost:5000/api/user/login",
+        `${apiUrl}/api/user/login`,
         { email, password },
         config
       );

@@ -5,6 +5,7 @@ import './App.css'
 
 
 function App() {
+  console.log(import.meta.env.VITE_BACKEND_URL)
   return (
     <div className="App">
     <Routes >

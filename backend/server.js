@@ -1,13 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const { chats } = require("./data/data.jsx");
+const { chats } = require("./data/data.js");
 const cors = require("cors");
-const connectDB = require("./config/db.jsx");
+const connectDB = require("./config/db.js");
 const colors = require("colors");
-const userRoutes = require("./routes/userRoutes.jsx");
-const chatRoutes = require("./routes/chatRoutes.jsx");
-const messageRoutes = require("./routes/messageRoutes.jsx");
-const { notFound, errorHandler } = require("./middleware/errorMiddleware.jsx");
+const userRoutes = require("./routes/userRoutes.js");
+const chatRoutes = require("./routes/chatRoutes.js");
+const messageRoutes = require("./routes/messageRoutes.js");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware.js");
 
 const path = require("path");
 const app = express();
@@ -15,7 +15,7 @@ dotenv.config();
 connectDB();
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: "http://localhost:5174", //frontend
   })
 );
 app.use(express.json()); //to accept json data
@@ -35,13 +35,13 @@ app.use("/api/message", messageRoutes);
 const __dirname1 = path.resolve();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname1, "/frontend/dist")));
-  
+  app.use(express.static(path.join(__dirname1, "frontend", "dist")));
+
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname1, "frontend", "dist", "index.html"));
   });
 } else {
-  console.log(path.join(__dirname1, 'frontend', 'dist'));
+  console.log(path.join(__dirname1, "frontend", "dist"));
   app.get("/", (req, res) => {
     res.send(`API is running succesfully`);
   });
@@ -51,7 +51,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 const server = app.listen(
   PORT,

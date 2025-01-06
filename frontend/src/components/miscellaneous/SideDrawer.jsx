@@ -34,6 +34,7 @@ import UserListItem from "../UserAvatar/UserListItem.jsx";
 import { getSender, getSenderDetails } from "../../config/ChatLogics.jsx";
 
 const SideDrawer = () => {
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -78,7 +79,7 @@ const SideDrawer = () => {
       };
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
+        `${apiUrl}/api/user?search=${search}`,
         config
       );
 
@@ -107,7 +108,7 @@ const SideDrawer = () => {
       };
 
       const { data } = await axios.post(
-        "http://localhost:5000/api/chat",
+        `${apiUrl}/api/chat`,
         { userId },
         config
       );

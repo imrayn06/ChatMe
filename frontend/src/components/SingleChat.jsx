@@ -20,7 +20,9 @@ import io from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animation/typing_dot_dropping.json";
 
-const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "http://localhost:5000";
+
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 
 let socket, selectedChatCompare;
 
@@ -56,7 +58,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       };
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/api/message/${selectedChat._id}`,
+        `${apiUrl}/api/message/${selectedChat._id}`,
         config
       );
 
@@ -78,7 +80,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   };
 
   useEffect(() => {
-    socket = io(ENDPOINT);
+    socket = io(`${apiUrl}`);
     socket.emit("setup", user);
     socket.on("connected", () => setSocketConnected(true));
     //typing
@@ -124,7 +126,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
         setNewMessage("");
         const { data } = await axios.post(
-          "http://localhost:5000/api/message",
+          `${apiUrl}/api/message`,
           {
             content: newMessage,
             chatId: selectedChat._id,

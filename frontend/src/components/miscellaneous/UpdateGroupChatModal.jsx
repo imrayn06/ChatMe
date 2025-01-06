@@ -31,10 +31,13 @@ function UpdateGroupChatModal({ fetchAgain, setFetchAgain, fetchMessages }) {
   const [loading, setLoading] = useState(false);
   const [renameLoading, setRenameLoading] = useState(false);
 
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
+
   const toast = useToast();
   const { selectedChat, setSelectedChat, user } = ChatState();
 
   const handleRemove = async (user1) => {
+
     if (selectedChat.groupAdmin._id !== user._id && user1._id !== user._id) {
       toast({
         title: "Only admins can perform this operation!",
@@ -56,7 +59,7 @@ function UpdateGroupChatModal({ fetchAgain, setFetchAgain, fetchMessages }) {
       };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/chat/groupremove`,
+        `${apiUrl}/api/chat/groupremove`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -113,7 +116,7 @@ function UpdateGroupChatModal({ fetchAgain, setFetchAgain, fetchMessages }) {
       };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/chat/groupadd`,
+        `${apiUrl}/api/chat/groupadd`,
         {
           chatId: selectedChat._id,
           userId: user1._id,
@@ -147,7 +150,7 @@ function UpdateGroupChatModal({ fetchAgain, setFetchAgain, fetchMessages }) {
       };
 
       const { data } = await axios.put(
-        `http://localhost:5000/api/chat/rename`,
+        `${apiUrl}/api/chat/rename`,
         {
           chatId: selectedChat._id,
           chatName: groupChatName,
@@ -187,7 +190,7 @@ function UpdateGroupChatModal({ fetchAgain, setFetchAgain, fetchMessages }) {
       };
 
       const { data } = await axios.get(
-        `http://localhost:5000/api/user?search=${search}`,
+        `${apiUrl}/api/user?search=${search}`,
         config
       );
       // console.log(data);

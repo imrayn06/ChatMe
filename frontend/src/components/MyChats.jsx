@@ -7,11 +7,14 @@ import ChatLoading from "./ChatLoading.jsx";
 import { getSender } from "../config/ChatLogics.jsx";
 import GroupChatModal from "./miscellaneous/GroupChatModal.jsx";
 
+
 const MyChats = ({fetchAgain}) => {
+
+  const apiUrl = import.meta.env.VITE_BACKEND_URL;
   const [loggedUser, setLoggedUser] = useState();
   const { user, setSelectedChat, selectedChat, chats, setChats } = ChatState();
   const toast = useToast();
-
+  
   const fetchChats = async () => {
     try {
       const config = {
@@ -20,7 +23,7 @@ const MyChats = ({fetchAgain}) => {
         },
       };
       const { data } = await axios.get(
-        "http://localhost:5000/api/chat",
+        `${apiUrl}/api/chat`,
         config
       );
       // console.log(data);
