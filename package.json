@@ -4,11 +4,9 @@
   "description": "",
   "main": "backend/server.jsx",
   "scripts": {
-    "start": "node backend/server.jsx",
-    "server": "nodemon backend/server.jsx",
-    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && cd frontend && vite build",
-    "dev": "cd frontend && vite",
-    "preview": "cd frontend && vite preview"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "build": "npm install --legacy-peer-deps && npm install --legacy-peer-deps --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Narayan Dutta",
   "license": "ISC",

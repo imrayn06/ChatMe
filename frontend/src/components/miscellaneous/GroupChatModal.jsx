@@ -31,7 +31,7 @@ const GroupChatModal = ({ children }) => {
   const { user, chats, setChats } = ChatState();
 
   const handleSearch = async (query) => {
-    const Url = "https://chatme-backend-3j4w.onrender.com";
+    // const Url = "https://chatme-backend-3j4w.onrender.com";
     setSearch(query);
     if (!query) {
       return;
@@ -46,7 +46,7 @@ const GroupChatModal = ({ children }) => {
       };
 
       const { data } = await axios.get(
-        `${Url}/api/user?search=${search}`,
+        `http://localhost/5000/api/user?search=${search}`,
         config
       );
       // console.log(data);
@@ -84,7 +84,7 @@ const GroupChatModal = ({ children }) => {
       };
 
       const { data } = await axios.post(
-        `${Url}/api/chat/group`,
+        `http://localhost/5000/api/chat/group`,
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),
