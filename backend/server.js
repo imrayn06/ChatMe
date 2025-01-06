@@ -67,9 +67,12 @@ const server = app.listen(
 );
 
 const io = require("socket.io")(server, {
-  pingTimeout: 60000, //wait 60 secs to close connection to save bandwidth
+  pingTimeout: 60000,
   cors: {
-    origin: "http://localhost:5174",
+    origin: [
+      "http://localhost:5174", // Local development
+      "https://chatme-9e0j.onrender.com/", // Production frontend URL
+    ],
   },
 });
 
