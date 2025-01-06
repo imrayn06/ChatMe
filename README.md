@@ -79,94 +79,102 @@ npm start
 ## Directory Structure
 
 ```plaintext
-imrayn06-ChatMe/
-├── README.md
-├── babel.config.js
-├── package.json
-├── backend/
-│   ├── server.js
-│   ├── config/
-│   │   ├── db.js
-│   │   └── generateToken.js
-│   ├── controllers/
-│   │   ├── chatControllers.js
-│   │   ├── messageControllers.js
-│   │   └── userControllers.js
-│   ├── data/
-│   │   └── data.js
-│   ├── middleware/
-│   │   ├── authMiddleware.js
-│   │   └── errorMiddleware.js
-│   ├── models/
-│   │   ├── MessageModel.js
-│   │   ├── UserModel.js
-│   │   └── chatModel.js
-│   └── routes/
-│       ├── chatRoutes.js
-│       ├── messageRoutes.js
-│       └── userRoutes.js
-└── frontend/
+Directory structure:
+└── imrayn06-ChatMe/
     ├── README.md
-    ├── eslint.config.js
-    ├── index.html
-    ├── jsconfig.json
-    ├── package-lock.json
-    ├── package.json
-    ├── vite.config.js
-    ├── .gitignore
-    └── src/
-        ├── App.css
-        ├── App.jsx
-        ├── index.css
-        ├── main.jsx
-        ├── Context/
-        │   └── ChatProvider.jsx
-        ├── animation/
-        │   └── typing_dot_dropping.json
-        ├── assets/
-        ├── components/
-        │   ├── ChatBox.jsx
-        │   ├── ChatLoading.jsx
-        │   ├── MyChats.jsx
-        │   ├── ScrollableChat.jsx
-        │   ├── SingleChat.jsx
-        │   ├── Authentication/
-        │   │   ├── Login.jsx
-        │   │   └── Signup.jsx
-        │   ├── Css/
-        │   │   └── styles.css
-        │   ├── UserAvatar/
-        │   │   ├── UserBadgeItem.jsx
-        │   │   └── UserListItem.jsx
-        │   ├── miscellaneous/
-        │   │   ├── GroupChatModal.jsx
-        │   │   ├── Profile.jsx
-        │   │   ├── SideDrawer.jsx
-        │   │   └── UpdateGroupChatModal.jsx
-        │   └── ui/
-        │       └── provider.jsx
-        ├── config/
-        │   └── ChatLogics.jsx
-        ├── pages/
-        │   ├── ChatPage.jsx
-        │   └── HomePage.jsx
+    ├── backend/
+    │   ├── babel.config.js
+    │   ├── package-lock.json
+    │   ├── package.json
+    │   ├── server.js
+    │   ├── .gitignore
+    │   ├── config/
+    │   │   ├── db.js
+    │   │   └── generateToken.js
+    │   ├── controllers/
+    │   │   ├── chatControllers.js
+    │   │   ├── messageControllers.js
+    │   │   └── userControllers.js
+    │   ├── data/
+    │   │   └── data.js
+    │   ├── frontend/
+    │   │   ├── package-lock.json
+    │   │   └── package.json
+    │   ├── middleware/
+    │   │   ├── authMiddleware.js
+    │   │   └── errorMiddleware.js
+    │   ├── models/
+    │   │   ├── MessageModel.js
+    │   │   ├── UserModel.js
+    │   │   └── chatModel.js
+    │   └── routes/
+    │       ├── chatRoutes.js
+    │       ├── messageRoutes.js
+    │       └── userRoutes.js
+    └── frontend/
+        ├── README.md
+        ├── eslint.config.js
+        ├── index.html
+        ├── jsconfig.json
+        ├── package-lock.json
+        ├── package.json
+        ├── vite.config.js
+        ├── .env
+        ├── .gitignore
         └── src/
-            └── components/
-                └── ui/
-                    ├── avatar.jsx
-                    ├── button.jsx
-                    ├── checkbox.jsx
-                    ├── close-button.jsx
-                    ├── color-mode.jsx
-                    ├── dialog.jsx
-                    ├── drawer.jsx
-                    ├── field.jsx
-                    ├── input-group.jsx
-                    ├── popover.jsx
-                    ├── provider.jsx
-                    ├── radio.jsx
-                    ├── slider.jsx
-                    └── tooltip.jsx
+            ├── App.css
+            ├── App.jsx
+            ├── index.css
+            ├── main.jsx
+            ├── Context/
+            │   └── ChatProvider.jsx
+            ├── animation/
+            │   └── typing_dot_dropping.json
+            ├── assets/
+            ├── components/
+            │   ├── ChatBox.jsx
+            │   ├── ChatLoading.jsx
+            │   ├── MyChats.jsx
+            │   ├── ScrollableChat.jsx
+            │   ├── SingleChat.jsx
+            │   ├── Authentication/
+            │   │   ├── Login.jsx
+            │   │   └── Signup.jsx
+            │   ├── Css/
+            │   │   └── styles.css
+            │   ├── UserAvatar/
+            │   │   ├── UserBadgeItem.jsx
+            │   │   └── UserListItem.jsx
+            │   ├── miscellaneous/
+            │   │   ├── GroupChatModal.jsx
+            │   │   ├── Profile.jsx
+            │   │   ├── SideDrawer.jsx
+            │   │   └── UpdateGroupChatModal.jsx
+            │   └── ui/
+            │       └── provider.jsx
+            ├── config/
+            │   └── ChatLogics.jsx
+            ├── pages/
+            │   ├── ChatPage.jsx
+            │   └── HomePage.jsx
+            └── src/
+                └── components/
+                    └── ui/
+                        ├── avatar.jsx
+                        ├── button.jsx
+                        ├── checkbox.jsx
+                        ├── close-button.jsx
+                        ├── color-mode.jsx
+                        ├── dialog.jsx
+                        ├── drawer.jsx
+                        ├── field.jsx
+                        ├── input-group.jsx
+                        ├── popover.jsx
+                        ├── provider.jsx
+                        ├── radio.jsx
+                        ├── slider.jsx
+                        └── tooltip.jsx
+
 ```
 
 ---
