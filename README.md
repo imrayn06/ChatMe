@@ -1,37 +1,178 @@
-ChatMe
+# ChatMe
 
-ChatMe is a Full Stack Chatting App. Uses Socket.io for real time communication and stores user details in encrypted format in Mongo DB Database.
-Tech Stack
+ChatMe is a Full Stack Chatting App that provides real-time communication using Socket.io. It securely stores user details in encrypted format in a MongoDB database.
 
-Client: React JS
+---
 
-Server: Node JS, Express JS
+## Tech Stack
 
-Database: Mongo DB
+### Frontend
+- **Technologies:** HTML, CSS, JSX, React, axios, react-router-dom, socket.io-client, Chakra UI
 
-Run Locally
+### Backend
+- **Technologies:** Node.js, Express.js, Render.com, Socket.io, MongoDB, Mongoose, CORS, bcrypt, JWT
 
-Clone the project
+---
 
-  git clone https://github.com/imrayn06/ChatMe.git
+## Features
 
-Go to the project directory
+### User Authentication
+- Secure login and signup
+- User profiles displayed in real-time with modals showing user information
 
-  cd ChatMe
+### Room Creation and Joining
+- Automatically creates a unique room identifier whenever a user initiates a chat with another user
+- Group chat support
 
-Install dependencies
+### Real-Time Chat
+- Instant messaging powered by Socket.io
 
-  npm install
+### Notification System
+- Notifications for new messages and group chats
 
-  cd frontend/
-  npm install
+### Responsive Design
+- Fully responsive and optimized for a seamless experience across desktops, tablets, and smartphones
 
-Start the server
+---
 
-  npm run start
+## Screenshots
 
-Start the Client
+### Landing Page
+*Add image here*
 
-  //open now terminal
-  cd frontend
-  npm start
+### Sign-Up Page
+*Add image here*
+
+### Login Page
+*Add image here*
+
+---
+
+## Run Locally
+
+### Clone the Project
+```bash
+git clone https://github.com/imrayn06/ChatMe.git
+cd ChatMe
+```
+
+### Install Dependencies
+```bash
+npm install
+cd frontend/
+npm install
+```
+
+### Start the Server
+```bash
+npm run start
+```
+
+### Start the Client
+```bash
+cd frontend
+npm start
+```
+
+---
+
+## Directory Structure
+
+```plaintext
+imrayn06-ChatMe/
+├── README.md
+├── babel.config.js
+├── package.json
+├── backend/
+│   ├── server.jsx
+│   ├── config/
+│   │   ├── db.jsx
+│   │   └── generateToken.jsx
+│   ├── controllers/
+│   │   ├── chatControllers.jsx
+│   │   ├── messageControllers.jsx
+│   │   └── userControllers.jsx
+│   ├── data/
+│   │   └── data.jsx
+│   ├── middleware/
+│   │   ├── authMiddleware.jsx
+│   │   └── errorMiddleware.jsx
+│   ├── models/
+│   │   ├── MessageModel.jsx
+│   │   ├── UserModel.jsx
+│   │   └── chatModel.jsx
+│   └── routes/
+│       ├── chatRoutes.jsx
+│       ├── messageRoutes.jsx
+│       └── userRoutes.jsx
+└── frontend/
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── jsconfig.json
+    ├── package-lock.json
+    ├── package.json
+    ├── vite.config.js
+    ├── .gitignore
+    └── src/
+        ├── App.css
+        ├── App.jsx
+        ├── index.css
+        ├── main.jsx
+        ├── Context/
+        │   └── ChatProvider.jsx
+        ├── animation/
+        │   └── typing_dot_dropping.json
+        ├── assets/
+        ├── components/
+        │   ├── ChatBox.jsx
+        │   ├── ChatLoading.jsx
+        │   ├── MyChats.jsx
+        │   ├── ScrollableChat.jsx
+        │   ├── SingleChat.jsx
+        │   ├── Authentication/
+        │   │   ├── Login.jsx
+        │   │   └── Signup.jsx
+        │   ├── Css/
+        │   │   └── styles.css
+        │   ├── UserAvatar/
+        │   │   ├── UserBadgeItem.jsx
+        │   │   └── UserListItem.jsx
+        │   ├── miscellaneous/
+        │   │   ├── GroupChatModal.jsx
+        │   │   ├── Profile.jsx
+        │   │   ├── SideDrawer.jsx
+        │   │   └── UpdateGroupChatModal.jsx
+        │   └── ui/
+        │       └── provider.jsx
+        ├── config/
+        │   └── ChatLogics.jsx
+        ├── pages/
+        │   ├── ChatPage.jsx
+        │   └── HomePage.jsx
+        └── src/
+            └── components/
+                └── ui/
+                    ├── avatar.jsx
+                    ├── button.jsx
+                    ├── checkbox.jsx
+                    ├── close-button.jsx
+                    ├── color-mode.jsx
+                    ├── dialog.jsx
+                    ├── drawer.jsx
+                    ├── field.jsx
+                    ├── input-group.jsx
+                    ├── popover.jsx
+                    ├── provider.jsx
+                    ├── radio.jsx
+                    ├── slider.jsx
+                    └── tooltip.jsx
+```
+
+---
+
+## FAQ
+
+**Q: Is the website optimized for mobile devices?**  
+**A:** Yes, the website is fully responsive and optimized for a seamless experience across all devices, including desktops, tablets, and smartphones.
+
