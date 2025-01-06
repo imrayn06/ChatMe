@@ -17,7 +17,7 @@ connectDB();
 // Enable CORS
 const allowedOrigins = [
   "http://localhost:5174", // for local development
-  "https://chatme-9e0j.onrender.com" // for production deployment
+  "https://chatme-frontend.onrender.com" // for production deployment
 ];
 app.use(
   cors({
