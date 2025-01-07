@@ -3,7 +3,7 @@
 ChatMe is a Full Stack Chatting App that provides real-time communication using Socket.io. It securely stores user details in encrypted format in a MongoDB database.
 
 ---
-## Deployed Link : https://chatme-frontend.onrender.com/
+## [Deployed Link](https://chatme-frontend.onrender.com/)
 ---
 
 ## Tech Stack
